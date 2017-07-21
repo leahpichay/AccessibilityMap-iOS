@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MapDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="aUZ-9F-w9W">
+                                <rect key="frame" x="0.0" y="28" width="375" height="29"/>
+                                <segments>
+                                    <segment title="Standard"/>
+                                    <segment title="Satellite"/>
+                                    <segment title="Hybrid"/>
+                                </segments>
+                                <connections>
+                                    <action selector="mapTypeChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="z8H-nz-Jp9"/>
+                                </connections>
+                            </segmentedControl>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SHa-cT-BnW">
+                                <rect key="frame" x="0.0" y="101" width="375" height="526"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="j3k-RR-YZn"/>
+                                </connections>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LLg-jb-Lh1">
+                                <rect key="frame" x="152" y="632" width="70" height="30"/>
+                                <state key="normal" title="Directions"/>
+                                <connections>
+                                    <action selector="getDirections:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LGB-6Y-l2M"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rtB-OY-2Yl" userLabel="Target Destination">
+                                <rect key="frame" x="-1" y="55" width="375" height="45"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="SHa-cT-BnW" firstAttribute="top" secondItem="aUZ-9F-w9W" secondAttribute="bottom" constant="45" id="4B2-an-eqU"/>
+                            <constraint firstItem="aUZ-9F-w9W" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="HfF-Oa-XUR"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LLg-jb-Lh1" secondAttribute="bottom" constant="5" id="Ihf-kW-vAP"/>
+                            <constraint firstItem="aUZ-9F-w9W" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MPO-zo-uId"/>
+                            <constraint firstItem="SHa-cT-BnW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UXR-ao-shv"/>
+                            <constraint firstItem="aUZ-9F-w9W" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="Xud-f5-2lW"/>
+                            <constraint firstItem="SHa-cT-BnW" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="bPg-9B-iSA"/>
+                            <constraint firstItem="LLg-jb-Lh1" firstAttribute="centerX" secondItem="SHa-cT-BnW" secondAttribute="centerX" id="eNT-vD-n3J"/>
+                            <constraint firstItem="LLg-jb-Lh1" firstAttribute="top" secondItem="SHa-cT-BnW" secondAttribute="bottom" constant="5" id="nOt-Kw-iCr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="map" destination="SHa-cT-BnW" id="WEg-vL-SUv"/>
+                        <outlet property="mapSegCntl" destination="aUZ-9F-w9W" id="nev-vt-3vJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.5" y="138.5"/>
+        </scene>
+    </scenes>
+</document>
